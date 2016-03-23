@@ -1,0 +1,23 @@
+{
+  "name": "locadora",
+  "authors": [
+    "Maiko Cunha <mkacunha@gmail.com>"
+  ],
+  "description": "sistema de locação de carro",
+  "main": "locadora",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "n"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
