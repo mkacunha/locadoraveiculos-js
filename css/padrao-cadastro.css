@@ -1,0 +1,15 @@
+.side-body {
+  margin-left: 310px;
+}
+
+.side-body {
+  margin-left: 5px;
+  margin-top: 20px;
+  position: relative;
+  -moz-animation: bodyslideout 300ms forwards;
+  -o-animation: bodyslideout 300ms forwards;
+  -webkit-animation: bodyslideout 300ms forwards;
+  animation: bodyslideout 300ms forwards;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}

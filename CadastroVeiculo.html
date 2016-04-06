@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Locadora de carro</title>
+
+  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/cadastro-veiculo.css">
+  <script type="text/javascript" src="js/util.js"></script>
+  <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/mask.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+  <script type="text/javascript" src="js/CadastroVeiculo.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="side-menu">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <div class="brand-wrapper">
+            <!-- Hamburger -->
+            <button type="button" class="navbar-toggle">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <!-- Brand -->
+            <div class="brand-name-wrapper">
+              <a class="navbar-brand" href="#">
+                Locadora
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Main Menu -->
+        <div class="side-menu-container">
+          <ul class="nav navbar-nav">
+            <li><a id="btn-cadastro-veiculo" href="ConsultaVeiculo.html"><span class="glyphicon glyphicon-bed"></span> Cadastro de veículo</a></li>
+            <li><a id="btn-cadastro-cliente" href="#"><span class="glyphicon glyphicon-user"></span> Cadastro de cliente</a></li>
+            <li><a id="btn-simular-locacao" href="#"><span class="glyphicon glyphicon-retweet"></span> Simular locação</a></li>
+            <li><a id="btn-locacao" href="#"><span class="glyphicon glyphicon-paste"></span> Locação</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+    </div>
+  </div>
+
+  <div class="container-fluid">
+
+    <div class="side-body">
+
+      <div class="panel-body form-horizontal">
+
+        <template id="template-mensagem-erro">
+          <div id="alerta-erro" class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span class="ds-alerta-erro">{{descricao}}</span>
+          </div>
+        </template>
+
+        <div id="mensagens-erro">
+
+        </div>
+
+        <legend class="aw-titulo-panel">Novo veículo</legend>
+
+        <div class="form-group">
+          <label for="edId" class="col-sm-2 control-label">Identificação</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="edId" readonly="readonly"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edMarca" class="col-sm-2 control-label">Marca</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control requerido" id="edMarca" data-label="Marca"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edModelo" class="col-sm-2 control-label">Modelo</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control requerido" id="edModelo" data-label="Modelo"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edAno" class="col-sm-2 control-label">Ano</label>
+          <div class="col-sm-4">
+            <input type="text" maxlength="4" class="form-control requerido" id="edAno" data-label="Ano"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edCor" class="col-sm-2 control-label">Cor</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control requerido" id="edCor" data-label="Cor"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edPlaca" class="col-sm-2 control-label">Placa</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control requerido" id="edPlaca" data-label="Placa"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edOpcionais" class="col-sm-2 control-label">Opcionais</label>
+          <div class="col-sm-8">
+            <textarea id="edOpcionais" class="form-control" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button id="btnSalvar" type="submit" class="btn btn-primary">Salvar</button>
+            <button id="btnCancelar" type="submit" class="btn btn-danger">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

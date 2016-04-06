@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta de veículos</title>
+
+  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+  <script type="text/javascript" src="js/util.js"></script>
+  <script type="text/javascript" src="js/consultaVeiculo.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="side-menu">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <div class="brand-wrapper">
+            <!-- Hamburger -->
+            <button type="button" class="navbar-toggle">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <!-- Brand -->
+            <div class="brand-name-wrapper">
+              <a class="navbar-brand" href="#">
+                Locadora
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Main Menu -->
+        <div class="side-menu-container">
+          <ul class="nav navbar-nav">
+            <li><a id="btn-cadastro-veiculo" href="ConsultaVeiculo.html"><span class="glyphicon glyphicon-bed"></span> Cadastro de veículo</a></li>
+            <li><a id="btn-cadastro-cliente" href="#"><span class="glyphicon glyphicon-user"></span> Cadastro de cliente</a></li>
+            <li><a id="btn-simular-locacao" href="#"><span class="glyphicon glyphicon-retweet"></span> Simular locação</a></li>
+            <li><a id="btn-locacao" href="#"><span class="glyphicon glyphicon-paste"></span> Locação</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+      <div class="side-body">
+
+        <div class="panel-body">
+
+          <div id="alerta-informacao" class="alert alert-warning alert-dismissible" role="alert" style="display:none">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span id="ds-alerta-informacao"></span>
+          </div>
+
+          <div id="alerta-erro" class="alert alert-danger alert-dismissible" role="alert" style="display:none">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span id="ds-alerta-erro"></span>
+          </div>
+
+          <legend>
+            <span class="aw-titulo-panel"> Consulta de veículo</span>
+            <a href="CadastroVeiculo.html?acao=novo"class="btn btn-link aw-link-panel">Novo veículo</a>
+          </legend>
+
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th class="text-center col-md-1">#</th>
+                  <th class="text-center col-md-3">Marca</th>
+                  <th class="text-center col-md-3">Modelo</th>
+                  <th class="text-center col-md-2">Ano</th>
+                  <th class="text-center col-md-2">Cor</th>
+                  <th class="text-center col-md-1"></th>
+                </tr>
+              </thead>
+
+              <tbody id="lista-veiculos">
+
+              </tbody>
+
+              <!-- Template do leiaute da tabela -->
+              <template id="template-lista-veiculos">
+                <tr>
+                  <td class="text-center" id="id" >{{id}}</td>
+                  <td id="marca">{{marca}}</td>
+                  <td id="modelo">{{modelo}}</td>
+                  <td id="ano"class="text-left">{{ano}}</td>
+                  <td id="cor" class="text-left">{{cor}}</td>
+                  <td class="text-center">
+                    <a href="CadastroVeiculo.html?acao=editar&id={{id}}" class="btn btn-link btn-xs" title="Editar" rel="tooltip" data-placement="top">
+                      <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+
+                    <a class="btn btn-link btn-xs btn-remover" data-id-veiculo="{{id}}" data-descricao-veiculo="{{modelo}} - {{marca}}" title="Remover" rel="tooltip" data-placement="top"
+                    data-toggle="modal" data-target="#modal-remover">
+                    <span  class="glyphicon glyphicon-remove"></span>
+                  </a>
+                </td>
+              </tr>
+            </template>
+            <!-- Fim Template do leiaute da tabela -->
+
+            <!-- Modal de exclusão -->
+
+            <div class="modal fade" id="modal-remover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Remover registro</h4>
+                  </div>
+                  <div class="modal-body">
+                    <input id="id-veiculo-remover" type="hidden" />
+                    Remover o veículo <span id="ed-descricao-veiculo-remover"></span> ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button id="btn-modal-remover" type="button" class="btn btn-danger" data-dismiss="modal">Remover</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Fim Modal de exclusão -->
+
+          </table>
+        </div>
+
+        <template id="">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Veículo</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Descrição </br> maiko</td>
+                </tr>
+              </tbody>
+
+              <tbody>
+                <tr>
+                  <td>Descrição</td>
+                </tr>
+              </tbody>
+
+              <tbody>
+                <tr>
+                  <td>Descrição</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          </template
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

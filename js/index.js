@@ -1,7 +1,11 @@
 var Menu = ( function controleMenu(){
 
   var menu = {};
-
+  function abrirCadastroCliente(){
+    var div = $('#load-pagina');
+    div.empty();
+    div.load('/CadastroVeiculo.html');
+  }
   function init(){
     $('.navbar-toggle').click(function () {
       $('.navbar-nav').toggleClass('slide-in');
@@ -14,6 +18,8 @@ var Menu = ( function controleMenu(){
       $('.side-body').removeClass('body-slide-in');
 
     });
+
+    $('#btn-cadastro-veiculo').click(abrirCadastroCliente);
   }
 
   menu.init = function(){
