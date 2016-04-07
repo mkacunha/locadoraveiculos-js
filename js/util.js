@@ -1,6 +1,7 @@
 var UTIL = (function(){
 
   var util = {};
+  var Storage = window.localStorage;
 
   util.loadScript = function (url, callback){
     var script = document.createElement('script');
@@ -91,6 +92,24 @@ var UTIL = (function(){
     return erros;
   }
 
-return util;
+  util.limparCampos = function(){
+    var campos = document.getElementsByClassName('limpar');
+    for (var i  = 0; i < campos.length; i++){
+      campo = campos[i];
+      campo.value = '';
+    }
+  }
 
+  util.proximaSequencia = function(nomeSequencia){
+    var sequencia = Storage.getItem(nomeSequencia);
+    if (sequencia !== null){
+      sequencia++;
+    } else {
+      sequencia = 1;
+    }
+
+    Storage.setItem(nomeSequencia, sequencia);
+    return sequencia;
+  }
+  return util;
 })();

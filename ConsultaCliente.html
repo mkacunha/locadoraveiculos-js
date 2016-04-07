@@ -11,7 +11,7 @@
   <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/menu.js"></script>
   <script type="text/javascript" src="js/util.js"></script>
-  <script type="text/javascript" src="js/consultaVeiculo.js"></script>
+  <script type="text/javascript" src="js/consultaCliente.js"></script>
 </head>
 <body>
   <div class="row">
@@ -68,8 +68,8 @@
           </div>
 
           <legend>
-            <span class="aw-titulo-panel"> Consulta de veículo</span>
-            <a href="CadastroVeiculo.html?acao=novo"class="btn btn-link aw-link-panel">Novo veículo</a>
+            <span class="aw-titulo-panel"> Consulta de clientes</span>
+            <a href="CadastroCliente.html?acao=novo"class="btn btn-link aw-link-panel">Novo cliente</a>
           </legend>
 
           <div class="table-responsive">
@@ -77,32 +77,32 @@
               <thead>
                 <tr>
                   <th class="text-center col-md-1">#</th>
-                  <th class="text-center col-md-3">Marca</th>
-                  <th class="text-center col-md-3">Modelo</th>
-                  <th class="text-center col-md-2">Ano</th>
-                  <th class="text-center col-md-2">Cor</th>
+                  <th class="text-center col-md-2">CPF/CNPJ</th>
+                  <th class="text-center col-md-4">Nome</th>
+                  <th class="text-center col-md-2">Cidade</th>
+                  <th class="text-center col-md-1">UF</th>
                   <th class="text-center col-md-1"></th>
                 </tr>
               </thead>
 
-              <tbody id="lista-veiculos">
+              <tbody id="lista-imprimir">
 
               </tbody>
 
               <!-- Template do leiaute da tabela -->
-              <template id="template-lista-veiculos">
+              <template id="template-lista-imprimir">
                 <tr>
-                  <td class="text-center" id="id" >{{id}}</td>
-                  <td id="marca">{{marca}}</td>
-                  <td id="modelo">{{modelo}}</td>
-                  <td id="ano"class="text-left">{{ano}}</td>
-                  <td id="cor" class="text-left">{{cor}}</td>
+                  <td class="text-center">{{id}}</td>
+                  <td>{{documento}}</td>
+                  <td>{{nome}}</td>
+                  <td class="text-left">{{cidade}}</td>
+                  <td class="text-left">{{uf}}</td>
                   <td class="text-center">
-                    <a href="CadastroVeiculo.html?acao=editar&id={{id}}" class="btn btn-link btn-xs" title="Editar" rel="tooltip" data-placement="top">
+                    <a href="CadastroCliente.html?acao=editar&id={{id}}" class="btn btn-link btn-xs" title="Editar" rel="tooltip" data-placement="top">
                       <span class="glyphicon glyphicon-pencil"></span>
                     </a>
 
-                    <a class="btn btn-link btn-xs btn-remover" data-id-veiculo="{{id}}" data-descricao-veiculo="{{modelo}} - {{marca}}" title="Remover" rel="tooltip" data-placement="top"
+                    <a class="btn btn-link btn-xs btn-remover" data-id-cliente="{{id}}" data-nome-cliente="{{nome}}" title="Remover" rel="tooltip" data-placement="top"
                     data-toggle="modal" data-target="#modal-remover">
                     <span  class="glyphicon glyphicon-remove"></span>
                   </a>
@@ -121,8 +121,8 @@
                     <h4 class="modal-title" id="myModalLabel">Remover registro</h4>
                   </div>
                   <div class="modal-body">
-                    <input id="id-veiculo-remover" type="hidden" />
-                    Remover o veículo <span id="ed-descricao-veiculo-remover"></span> ?
+                    <input id="id-remover" type="hidden" />
+                    Remover o cliente <span id="ed-nome-cliente-remover"></span> ?
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -137,40 +137,10 @@
 
           </table>
         </div>
-
-        <template id="">
-          <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>Veículo</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td>Descrição </br> maiko</td>
-                </tr>
-              </tbody>
-
-              <tbody>
-                <tr>
-                  <td>Descrição</td>
-                </tr>
-              </tbody>
-
-              <tbody>
-                <tr>
-                  <td>Descrição</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          </template
-        </div>
       </div>
-
     </div>
+
   </div>
+</div>
 </body>
 </html>

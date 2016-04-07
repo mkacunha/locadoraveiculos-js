@@ -6,13 +6,13 @@
 
   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/menu.css">  
+  <link rel="stylesheet" href="css/menu.css">
   <script type="text/javascript" src="js/util.js"></script>
   <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/mask.js"></script>
   <script type="text/javascript" src="js/menu.js"></script>
-  <script type="text/javascript" src="js/CadastroVeiculo.js"></script>
+  <script type="text/javascript" src="js/cadastroCliente.js"></script>
 </head>
 <body>
   <div class="row">
@@ -70,7 +70,7 @@
 
         </div>
 
-        <legend class="aw-titulo-panel">Novo veículo</legend>
+        <legend class="aw-titulo-panel">Novo cliente</legend>
 
         <div class="form-group">
           <label for="edId" class="col-sm-2 control-label">Identificação</label>
@@ -80,58 +80,95 @@
         </div>
 
         <div class="form-group">
-          <label for="edMarca" class="col-sm-2 control-label">Marca</label>
+          <div class="col-md-offset-2 col-sm-8">
+            <div class="col-md-9 form-group row" id="opcoes">
+              <label class="radio-inline" for="opcaoCpf">
+                <input type="radio"  class="opacaoDocumento" name="opcao" id="opcaoCpf" value="CPF" checked="checked">
+                CPF
+              </label>
+              <label class="radio-inline" for="opcaoCnpj">
+                <input type="radio" class="opcaoDocumento" name="opcao" id="opcaoCnpj" value="CNPJ">
+                CNPJ
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edDocumento" class="col-sm-2 control-label">CPF/CNPJ</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control requerido limpar" id="edDocumento" data-label="CPF/CNPJ"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edCnh" class="col-sm-2 control-label">CNH</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control requerido limpar" id="edCnh" data-label="CNH"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edNome" class="col-sm-2 control-label">Nome</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control requerido limpar" id="edMarca" data-label="Marca"/>
+            <input type="text" class="form-control requerido limpar" id="edNome" data-label="Nome"/>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="edModelo" class="col-sm-2 control-label">Modelo</label>
+          <label  for="edTelefone" class="col-sm-2 control-label">Telefone</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control requerido limpar" id="edTelefone" data-label="Telefone"/>
+          </div>
+
+          <label  for="edCelular" class="col-sm-2 control-label">Celular</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control requerido limpar" id="edCelular" data-label="Celular"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edCep" class="col-sm-2 control-label">CEP</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control requerido limpar" id="edCep" data-label="CEP"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edLogradouro" class="col-sm-2 control-label">Logradouro</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control requerido limpar" id="edModelo" data-label="Modelo"/>
+            <input type="text" class="form-control requerido limpar" id="edLogradouro" data-label="Logradouro"/>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="edAno" class="col-sm-2 control-label">Ano</label>
+          <label  for="edNumero" class="col-sm-2 control-label">Número</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control requerido limpar" id="edNumero" data-label="Número"/>
+          </div>
+
+          <label  for="edComplemento" class="col-sm-2 control-label">Complemento</label>
           <div class="col-sm-4">
-            <input type="text" maxlength="4" class="form-control requerido limpar" id="edAno" data-label="Ano"/>
+            <input type="text" class="form-control limpar" id="edComplemento" data-label="Complemento"/>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="edCor" class="col-sm-2 control-label">Cor</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control requerido limpar" id="edCor" data-label="Cor"/>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="edPlaca" class="col-sm-2 control-label">Placa</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control requerido limpar" id="edPlaca" data-label="Placa"/>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="edValorDiaria" class="col-sm-2 control-label">Valor diária</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control requerido limpar" id="edValorDiaria" data-label="Valor diária"/>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="edValorKm" class="col-sm-2 control-label">Valor por KM</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control requerido limpar" id="edValorKm" data-label="Valor por KM"/>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="edOpcionais" class="col-sm-2 control-label">Opcionais</label>
+          <label for="edbairro" class="col-sm-2 control-label">Bairro</label>
           <div class="col-sm-8">
-            <textarea id="edOpcionais" class="form-control limpar" rows="3"></textarea>
+            <input type="text" class="form-control requerido limpar" id="edBairro" data-label="Bairro"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label  for="edCidade" class="col-sm-2 control-label">Cidade</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control requerido limpar" id="edCidade" data-label="Cidade"/>
+          </div>
+
+          <label  for="edUf" class="col-sm-1 control-label">UF</label>
+          <div class="col-sm-1">
+            <input type="text" class="form-control requerido limpar" id="edUf" data-label="UF"/>
           </div>
         </div>
 

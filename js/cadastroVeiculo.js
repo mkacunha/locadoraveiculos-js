@@ -18,13 +18,7 @@ function init(){
   }
 
   function limparCampos(){
-    edID().value = '';
-    edMarca().value = '';
-    edModelo().value = '';
-    edAno().value = '';
-    edCor().value = '';
-    edPlaca().value = '';
-    edOpcionais().value = '';
+    UTIL.limparCampos();
   }
 
   function salvar(){
@@ -89,25 +83,12 @@ function init(){
     if (acao === 'editar'){
       id = edID().value;
     } else {
-      id = proximaSequencia();
+      id = UTIL.proximaSequencia('SEQ_TB_VEICULO');
     }
 
     var veiculo  = new Veiculo(id, edMarca().value,edModelo().value,edAno().value,edCor().value,edPlaca().value,edOpcionais().value, edValorDiaria().value, edValorKm().value);
     return veiculo;
   }
-
-  function proximaSequencia(){
-    var sequencia = Storage.getItem('SEQ_TB_VEICULO');
-    if (sequencia !== null){
-      sequencia++;
-    } else {
-      sequencia = 1;
-    }
-
-    Storage.setItem('SEQ_TB_VEICULO', sequencia);
-    return sequencia;
-  }
-
 
   function edID(){
     return document.getElementById('edId');

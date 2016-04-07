@@ -3,52 +3,52 @@ window.onload = init;
 function init(){
   var Storage = window.localStorage;
 
-  function imprimeListaVeiculos(){
-    var lista = document.getElementById('lista-veiculos');
+  function imprimeListaClientes(){
+    var lista = document.getElementById('lista-imprimir');
     lista.textContent = '';
-    for (var i = 0; i < veiculos.length; i++) {
-      var veiculo = veiculos[i];
-      var templateLista = document.getElementById('template-lista-veiculos');
+    for (var i = 0; i < clientes.length; i++) {
+      var cliente = clientes[i];
+      var templateLista = document.getElementById('template-lista-imprimir');
       var copiaTemplate = templateLista.content.firstElementChild.cloneNode(true);
-      UTIL.replaceWithData(copiaTemplate, veiculo);
+      UTIL.replaceWithData(copiaTemplate, cliente);
       lista.appendChild(copiaTemplate);
     }
   }
 
-  function removerVeiculo(){
-    var input = document.getElementById('id-veiculo-remover');
-    var idVeiculo = input.innerText;
+  function removerCliente(){
+    var input = document.getElementById('id-remover');
+    var idCliente = input.innerText;
 
-    var veiculosAux = [];
+    var clientesAux = [];
 
-    for (var i = 0; i < veiculos.length; i++) {
-      var veiculo = veiculos[i];
-      if (veiculo.id != idVeiculo){
-        veiculosAux.push(veiculo);
+    for (var i = 0; i < clientes.length; i++) {
+      var cliente = clientes[i];
+      if (cliente.id != idCliente){
+        clientesAux.push(cliente);
       }
     }
 
-    Storage.setItem('TB_VEICULO', JSON.stringify(veiculosAux));
-    buscarVeiculos();
-    imprimeListaVeiculos();
+    Storage.setItem('TB_CLIENTE', JSON.stringify(clientesAux));
+    buscarClientes();
+    imprimeListaClientes();
   }
 
   $('#modal-remover').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
-    var descricao =  button.data('id-veiculo') + '  ' + button.data('descricao-veiculo');
+    var descricao =  button.data('id-cliente') + '  ' + button.data('nome-cliente');
 
     var modal = $(this)
-    modal.find('#ed-descricao-veiculo-remover').text(descricao);
-    modal.find('#id-veiculo-remover').text(button.data('id-veiculo'));
+    modal.find('#ed-nome-cliente-remover').text(descricao);
+    modal.find('#id-remover').text(button.data('id-.cliente'));
 
   });
 
-  function buscarVeiculos(){
-    var TB_VEICULO = Storage.getItem('TB_VEICULO');
-    if (TB_VEICULO!==null) {
-      veiculos = JSON.parse(TB_VEICULO);
+  function buscarClientes(){
+    var TB_CLIENTE = Storage.getItem('TB_CLIENTE');
+    if (TB_CLIENTE!==null) {
+      clientes = JSON.parse(TB_CLIENTE);
     } else {
-      veiculos = [];
+      clientes = [];
     }
   }
 
@@ -67,13 +67,13 @@ function init(){
     alerta.style.display = 'block';
   }
 
-  var veiculos = [];
+  var clientes = [];
   /*Início que deve ser inicializado*/
-  buscarVeiculos();
-  imprimeListaVeiculos();
+  buscarClientes();
+  imprimeListaClientes();
 
   var btnModalRemover = document.getElementById('btn-modal-remover');
-  btnModalRemover.addEventListener('click', removerVeiculo);
+  btnModalRemover.addEventListener('click', removerCliente);
 
   var tipoMensagem = UTIL.getParameterURL('tipomensagem');
   var mensagem = UTIL.getParameterURL('mensagem');
