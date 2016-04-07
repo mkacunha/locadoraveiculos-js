@@ -5,7 +5,7 @@ function init(){
   var veiculos = [];
   var acao = '';
 
-  function Veiculo(id, marca, modelo, ano, cor, placa, opcionais){
+  function Veiculo(id, marca, modelo, ano, cor, placa, opcionais, valorDiaria, valorKm){
     this.id = id;
     this.marca = marca;
     this.modelo = modelo;
@@ -13,6 +13,8 @@ function init(){
     this.cor = cor;
     this.placa = placa;
     this.opcionais = opcionais;
+    this.valorDiaria = valorDiaria;
+    this.valorKm = valorKm;
   }
 
   function limparCampos(){
@@ -90,7 +92,7 @@ function init(){
       id = proximaSequencia();
     }
 
-    var veiculo  = new Veiculo(id, edMarca().value,edModelo().value,edAno().value,edCor().value,edPlaca().value,edOpcionais().value);
+    var veiculo  = new Veiculo(id, edMarca().value,edModelo().value,edAno().value,edCor().value,edPlaca().value,edOpcionais().value, edValorDiaria().value, edValorKm().value);
     return veiculo;
   }
 
@@ -135,6 +137,14 @@ function init(){
     return document.getElementById('edOpcionais');
   }
 
+  function edValorDiaria(){
+    return document.getElementById('edValorDiaria');
+  }
+
+  function edValorKm(){
+    return document.getElementById('edValorKm');
+  }
+
   function validaAno(){
     edAno().value = edAno().value.replace(/[^0-9 ]/gmi,'');
   }
@@ -169,6 +179,8 @@ function init(){
     edCor().value = veiculo.cor;
     edPlaca().value = veiculo.placa;
     edOpcionais().value = veiculo.opcionais;
+    edValorDiaria().value = veiculo.valorDiaria;
+    edValorKm().value = veiculo.valorKm;
   }
 
   function cancelar(){
@@ -188,6 +200,10 @@ function init(){
 
   edAno().addEventListener('keyup', validaAno, true);
   $('#edPlaca').mask('AAA-9999');
+  $('#edValorDiaria').mask('000.000.000.000.000,00', {reverse: true});
+  $('#edValorKm').mask('000.000.000.000.000,00', {reverse: true});
+
+
 
   acao = UTIL.getParameterURL('acao');
 
