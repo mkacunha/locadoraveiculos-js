@@ -53,7 +53,6 @@ var AppCadastroVeiculo = (function cadastroVeiculo(){
   }
 
   function redirecionarConsulta(tipoMensagem, mensagem){
-  //  var url = 'file:///Volumes/Dados%20mac/MAIKO/WORKSPACE_JAVASCRIPT/locadora/ConsultaVeiculo.html?tipomensagem=' + tipoMensagem + '&mensagem=' + mensagem;
     var url =  'http://' + window.location.host + '/ConsultaVeiculo.html?tipomensagem=' + tipoMensagem + '&mensagem=' + mensagem;
     window.location = url;
   }
