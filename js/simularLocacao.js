@@ -137,7 +137,8 @@ function init(){
       Storage.setItem('TB_LOCACAO', JSON.stringify(locacoes));
       UTIL.limparCampos();
 
-      var url = 'file:///Volumes/Dados%20mac/MAIKO/WORKSPACE_JAVASCRIPT/locadora/Locacao.html?id=' + id;
+      //var url = 'file:///Volumes/Dados%20mac/MAIKO/WORKSPACE_JAVASCRIPT/locadora/Locacao.html?id=' + id;
+      var url =  'http://' + window.location.host + '/Locacao.html?id=' + id;
       window.open(url);
     }
 

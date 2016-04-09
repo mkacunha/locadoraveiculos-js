@@ -1,6 +1,6 @@
-window.onload = init;
+var AppCadastroVeiculo = (function cadastroVeiculo(){
 
-function init(){
+  var app = {};
   var Storage = window.localStorage;
   var veiculos = [];
   var acao = '';
@@ -53,7 +53,8 @@ function init(){
   }
 
   function redirecionarConsulta(tipoMensagem, mensagem){
-    var url = 'file:///Volumes/Dados%20mac/MAIKO/WORKSPACE_JAVASCRIPT/locadora/ConsultaVeiculo.html?tipomensagem=' + tipoMensagem + '&mensagem=' + mensagem;
+  //  var url = 'file:///Volumes/Dados%20mac/MAIKO/WORKSPACE_JAVASCRIPT/locadora/ConsultaVeiculo.html?tipomensagem=' + tipoMensagem + '&mensagem=' + mensagem;
+    var url =  'http://' + window.location.host + '/ConsultaVeiculo.html?tipomensagem=' + tipoMensagem + '&mensagem=' + mensagem;
     window.location = url;
   }
 
@@ -172,26 +173,31 @@ function init(){
     redirecionarConsulta('erro', mensagem);
   }
 
-  /** Quando separar em um arquivo deve ser inicializado  **/
-  btnSalvar = document.getElementById('btnSalvar');
-  btnSalvar.addEventListener('click', salvar);
+  function init(){
+    btnSalvar = document.getElementById('btnSalvar');
+    btnSalvar.addEventListener('click', salvar);
 
-  btnCancelar = document.getElementById('btnCancelar');
-  btnCancelar.addEventListener('click', cancelar);
+    btnCancelar = document.getElementById('btnCancelar');
+    btnCancelar.addEventListener('click', cancelar);
 
-  edAno().addEventListener('keyup', validaAno, true);
-  $('#edPlaca').mask('AAA-9999');
-  $('#edValorDiaria').mask('000.000.000.000.000,00', {reverse: true});
-  $('#edValorKm').mask('000.000.000.000.000,00', {reverse: true});
+    edAno().addEventListener('keyup', validaAno, true);
+    $('#edPlaca').mask('AAA-9999');
+    $('#edValorDiaria').mask('000.000.000.000.000,00', {reverse: true});
+    $('#edValorKm').mask('000.000.000.000.000,00', {reverse: true});
 
 
 
-  acao = UTIL.getParameterURL('acao');
+    acao = UTIL.getParameterURL('acao');
 
-  if (acao === 'editar'){
-    editarVeiculo();
+    if (acao === 'editar'){
+      editarVeiculo();
+    }
   }
 
-  /** Fim da inicializacao  **/
+  app.init = function(){
+    init();
+  }
 
-};
+  return app;
+
+})();

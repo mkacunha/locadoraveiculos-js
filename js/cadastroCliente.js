@@ -75,7 +75,8 @@ var AppCadastroCliente = (function CadastroCliente(){
   }
 
   function redirecionarConsulta(tipoMensagem, mensagem){
-    var url = 'file:///Volumes/Dados%20mac/MAIKO/WORKSPACE_JAVASCRIPT/locadora/ConsultaCliente.html?tipomensagem=' + tipoMensagem + '&mensagem=' + mensagem;
+    //var url = 'file:///Volumes/Dados%20mac/MAIKO/WORKSPACE_JAVASCRIPT/locadora/ConsultaCliente.html?tipomensagem=' + tipoMensagem + '&mensagem=' + mensagem;
+    var url =  'http://' + window.location.host + '/ConsultaCliente.html?tipomensagem=' + tipoMensagem + '&mensagem=' + mensagem;
     window.location = url;
   }
 

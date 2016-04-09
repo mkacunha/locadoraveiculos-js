@@ -1,6 +1,6 @@
-window.onload = init;
+var AppConsultaCliente = (function consultaCliente(){
 
-function init(){
+  var app = {};
   var Storage = window.localStorage;
 
   function imprimeListaClientes(){
@@ -68,19 +68,25 @@ function init(){
   }
 
   var clientes = [];
-  /*Início que deve ser inicializado*/
-  buscarClientes();
-  imprimeListaClientes();
 
-  var btnModalRemover = document.getElementById('btn-modal-remover');
-  btnModalRemover.addEventListener('click', removerCliente);
+  function init(){
+    buscarClientes();
+    imprimeListaClientes();
 
-  var tipoMensagem = UTIL.getParameterURL('tipomensagem');
-  var mensagem = UTIL.getParameterURL('mensagem');
+    var btnModalRemover = document.getElementById('btn-modal-remover');
+    btnModalRemover.addEventListener('click', removerCliente);
 
-  if (tipoMensagem !== undefined && mensagem !== undefined){
-    mostrarMensagem(tipoMensagem, mensagem);
+    var tipoMensagem = UTIL.getParameterURL('tipomensagem');
+    var mensagem = UTIL.getParameterURL('mensagem');
+
+    if (tipoMensagem !== undefined && mensagem !== undefined){
+      mostrarMensagem(tipoMensagem, mensagem);
+    }
   }
 
-  /*Fim inicializacao*/
-}
+    app.init = function(){
+      init();
+    };
+
+    return app;
+})();

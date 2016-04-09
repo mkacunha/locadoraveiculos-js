@@ -1,7 +1,6 @@
-window.onload = init;
+var AppConsultaLocacao = (function consultaLocacao(){
 
-function init(){
-
+  var app = {};
   var Storage = window.localStorage;
   var locacoes = [];
 
@@ -84,15 +83,18 @@ function init(){
   });
 
 
-  /* Inicialização */
-  buscarLocacoes();
-  imprimeListaLocacoes();
+  function init(){
+    buscarLocacoes();
+    imprimeListaLocacoes();
 
-  var btnConcluirLocacao = document.getElementById('btn-modal-concluir');
-  btnConcluirLocacao.addEventListener('click', concluirLocacao);
+    var btnConcluirLocacao = document.getElementById('btn-modal-concluir');
+    btnConcluirLocacao.addEventListener('click', concluirLocacao);
+  }
 
+  app.init = function(){
+    init();
+  }
 
+  return app;
 
-  /* Fim da inicialização */
-
-};
+})();
