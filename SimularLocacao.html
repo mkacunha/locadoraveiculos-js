@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Locadora de carro</title>
+  <title>Simular locação</title>
 
   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
   <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/simularLocacao.css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:600" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript" src="js/util.js"></script>
   <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -20,6 +22,9 @@
   <script type="text/javascript" src="js/mask.js"></script>
   <script type="text/javascript" src="js/menu.js"></script>
   <script type="text/javascript" src="js/simularLocacao.js"></script>
+  <script type="text/javascript" src="js/mapa.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.custom.min.js"></script>
+
 </head>
 <body>
   <div class="row">
@@ -159,12 +164,13 @@
           <label  for="edOrigem" class="col-sm-2 control-label">Origem</label>
           <div class="col-sm-3">
             <input type="text" class="form-control requerido limpar" id="edOrigem" data-label="Origem"/>
+            <input type="hidden" id="edOrigemLatitude" name="edOrigemLatitude" />
+            <input type="hidden" id="edOrigemLongitude" name="edOrigemLongitude" />
           </div>
 
           <label  for="edDestino" class="col-sm-2 control-label">Destino</label>
           <div class="col-sm-3">
-            <input type="text" class="form-control requerido limpar" id="edDestino" data-label="Destino
-            "/>
+            <input type="text" class="form-control requerido limpar" id="edDestino" data-label="Destino"/>
           </div>
         </div>
 
@@ -205,6 +211,15 @@
             <button id="btnGerarLocacao" type="submit" class="btn btn-primary">Gerar locação do veículo</button>
           </div>
         </div>
+
+
+        <div>
+          <h1 id="warnings-panel"></h1>
+        </div>
+
+        </div>
+        <div id="mapa"></div>
+
       </div>
     </div>
 

@@ -27,6 +27,14 @@ function init(){
           var total = quantidadeDias * valorDiaria;
           edValorSimulacao().value = UTIL.formatarValorMonetario(total, 2, ',', '.');
         }
+      } else {
+        var quantidadeKm = edQuantidadeKm().value.replace('.', '').replace(',', '.');
+        var valorKm = veiculoSelecionado.valorKm.replace('.', '').replace(',', '.');
+
+        if (!(isNaN(valorKm)) && !(isNaN(quantidadeKm))){
+          var total = quantidadeKm * valorKm;
+          edValorSimulacao().value = UTIL.formatarValorMonetario(total, 2, ',', '.');
+        }
       }
     }
   }
@@ -65,7 +73,13 @@ function init(){
         erros.push(novoErro('Data início menor que a data atual', 'Data de início deve ser maior ou igual a data atual !'));
       }
     } else {
+      if (edOrigem().value.length < 1){
+        erros.push(novoErro('Origem não informado', 'Origem deve ser informado para realizar a simulação !'));
+      }
 
+      if (edDestino().value.length < 1){
+        erros.push(novoErro('Destino não informado', 'Destino deve ser informado para realizar a simulação !'));
+      }
     }
 
     if (erros.length === 0){
@@ -103,7 +117,7 @@ function init(){
       if (opcaoPeriodo().checked){
         resumo = 'Locação realizada para o período ' + edDataInicio().value + ' a ' + edDataFim().value + ' (' + edQuantidadeDias().value +' dia(s)), valor de diária R$ ' + edValorDiaria().value + ', valor total R$ ' + edValorSimulacao().value;
       } else{
-        resumo = 'Locação realizada para o roteiro de ' + edOrigem().value + ' a ' + edDestino().value + ' (' + edQuantidadeKm().value +' km, valor por KM R$ ' + edValorKm().value + ', valor total R$ ' + edValorSimulacao().value;
+        resumo = 'Locação realizada para o roteiro de ' + edOrigem().value + ' a ' + edDestino().value + ' (' + edQuantidadeKm().value +' km), valor por KM R$ ' + edValorKm().value + ', valor total R$ ' + edValorSimulacao().value;
       }
 
       var id = UTIL.proximaSequencia('SEQ_TB_LOCACAO');
@@ -332,6 +346,10 @@ function init(){
     return document.getElementById('btnGerarLocacao');
   }
 
+  function mapa(){
+    return document.getElementById('mapa');
+  }
+
   function defineOpcaoLocacao(){
     edDataInicio().value = '';
     edDataFim().value = '';
@@ -344,14 +362,19 @@ function init(){
 
       grupoInfoPeriodo().style.display = 'block';
       grupoInfoTrajeto().style.display = 'none';
+
+      mapa().style.display = 'none';
     } else {
       grupoLocacaoPeriodo().style.display = 'none';
       grupoLocacaoTrajeto().style.display = 'block';
 
       grupoInfoPeriodo().style.display = 'none';
       grupoInfoTrajeto().style.display = 'block';
+
+      mapa().style.display = 'block';
     }
   }
+
 
   /* Inicialização */
   inicializarSelects();
