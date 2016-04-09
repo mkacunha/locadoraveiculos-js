@@ -12,7 +12,7 @@
   <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/mask.js"></script>
   <script type="text/javascript" src="js/menu.js"></script>
-  <script type="text/javascript" src="js/CadastroVeiculo.js"></script>
+  <script type="text/javascript" src="js/locacao.js"></script>
 </head>
 <body>
   <div class="row">
@@ -70,7 +70,10 @@
 
         </div>
 
-        <legend class="aw-titulo-panel">Novo veículo</legend>
+        <legend>
+          <span class="aw-titulo-panel">Locação</span>
+          <a href="ConsultaLocacao.html"class="btn btn-link aw-link-panel">Voltar para consulta de locação</a>
+        </legend>
 
         <div class="form-group">
           <label for="edId" class="col-sm-2 control-label">Identificação</label>
@@ -80,65 +83,42 @@
         </div>
 
         <div class="form-group">
-          <label for="edMarca" class="col-sm-2 control-label">Marca</label>
+          <label  for="edDataLocacao" class="col-sm-2 control-label">Data locação</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" id="edDataLocacao" readonly="readonly"/>
+          </div>
+
+          <label  for="edStatus" class="col-sm-2 control-label">Status</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" id="edStatus" readonly="readonly"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="edCliente" class="col-sm-2 control-label">Cliente</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control requerido limpar" id="edMarca" data-label="Marca"/>
+            <input type="text" class="form-control" id="edCliente" readonly="readonly"/>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="edModelo" class="col-sm-2 control-label">Modelo</label>
+          <label for="edVeiculo" class="col-sm-2 control-label">Veículo</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control requerido limpar" id="edModelo" data-label="Modelo"/>
+            <input type="text" class="form-control" id="edVeiculo" readonly="readonly"/>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="edAno" class="col-sm-2 control-label">Ano</label>
-          <div class="col-sm-4">
-            <input type="text" maxlength="4" class="form-control requerido limpar" id="edAno" data-label="Ano"/>
+          <label  for="edValor" class="col-sm-2 control-label">Valor locação</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" id="edValor" readonly="readonly"/>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="edCor" class="col-sm-2 control-label">Cor</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control requerido limpar" id="edCor" data-label="Cor"/>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="edPlaca" class="col-sm-2 control-label">Placa</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control requerido limpar" id="edPlaca" data-label="Placa"/>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="edValorDiaria" class="col-sm-2 control-label">Valor diária</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control requerido limpar" id="edValorDiaria" data-label="Valor diária"/>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="edValorKm" class="col-sm-2 control-label">Valor por KM</label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control requerido limpar" id="edValorKm" data-label="Valor por KM"/>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="edOpcionais" class="col-sm-2 control-label">Opcionais</label>
+          <label for="edResumo" class="col-sm-2 control-label">Resumo</label>
           <div class="col-sm-8">
-            <textarea id="edOpcionais" class="form-control limpar" rows="3"></textarea>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button id="btnSalvar" type="submit" class="btn btn-primary">Salvar</button>
-            <button id="btnCancelar" type="submit" class="btn btn-danger">Cancelar</button>
+            <textarea id="edResumo" class="form-control" rows="3" readonly="readonly"></textarea>
           </div>
         </div>
       </div>

@@ -1,0 +1,16 @@
+@media all and (max-width: 764px){
+  #edGrupoDataFim, #edGrupoDataInicio{
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+@media all and (min-width: 765px){
+  #edGrupoDataFim{
+    margin-right: 15px;
+  }
+
+  #edGrupoDataInicio{
+    margin-left: 15px;
+  }
+}

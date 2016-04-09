@@ -39,7 +39,7 @@ function init(){
 
     var modal = $(this)
     modal.find('#ed-nome-cliente-remover').text(descricao);
-    modal.find('#id-remover').text(button.data('id-.cliente'));
+    modal.find('#id-remover').text(button.data('id-cliente'));
 
   });
 

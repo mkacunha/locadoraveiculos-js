@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Consulta de veículos</title>
+  <title>Consulta de locações</title>
 
   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
@@ -11,7 +11,7 @@
   <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/menu.js"></script>
   <script type="text/javascript" src="js/util.js"></script>
-  <script type="text/javascript" src="js/consultaCliente.js"></script>
+  <script type="text/javascript" src="js/consultaLocacao.js"></script>
 </head>
 <body>
   <div class="row">
@@ -56,20 +56,8 @@
       <div class="side-body">
 
         <div class="panel-body">
-
-          <div id="alerta-informacao" class="alert alert-warning alert-dismissible" role="alert" style="display:none">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <span id="ds-alerta-informacao"></span>
-          </div>
-
-          <div id="alerta-erro" class="alert alert-danger alert-dismissible" role="alert" style="display:none">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <span id="ds-alerta-erro"></span>
-          </div>
-
           <legend>
-            <span class="aw-titulo-panel"> Consulta de clientes</span>
-            <a href="CadastroCliente.html?acao=novo"class="btn btn-link aw-link-panel">Novo cliente</a>
+            <span class="aw-titulo-panel"> Consulta de locações de veículos</span>
           </legend>
 
           <div class="table-responsive">
@@ -77,10 +65,10 @@
               <thead>
                 <tr>
                   <th class="text-center col-md-1">#</th>
-                  <th class="text-center col-md-2">CPF/CNPJ</th>
-                  <th class="text-center col-md-4">Nome</th>
-                  <th class="text-center col-md-2">Cidade</th>
-                  <th class="text-center col-md-1">UF</th>
+                  <th class="text-center col-md-1">Data</th>
+                  <th class="text-center col-md-3">Cliente</th>
+                  <th class="text-center col-md-3">Veículo</th>
+                  <th class="text-center col-md-1">Status</th>
                   <th class="text-center col-md-1"></th>
                 </tr>
               </thead>
@@ -93,18 +81,21 @@
               <template id="template-lista-imprimir">
                 <tr>
                   <td class="text-center">{{id}}</td>
-                  <td>{{documento}}</td>
-                  <td>{{nome}}</td>
-                  <td class="text-left">{{cidade}}</td>
-                  <td class="text-left">{{uf}}</td>
+                  <td class="text-center">{{data}}</td>
+                  <td class="text-left">{{nomeCliente}}</td>
+                  <td class="text-left">{{descricaoVeiculo}}</td>
                   <td class="text-center">
-                    <a href="CadastroCliente.html?acao=editar&id={{id}}" class="btn btn-link btn-xs" title="Editar" rel="tooltip" data-placement="top">
-                      <span class="glyphicon glyphicon-pencil"></span>
+                    <span class="label {{label-status}}">{{status}}</span>
+                  </td>
+
+                  <td class="text-center">
+                    <a href="Locacao.html?acao=editar&id={{id}}" class="btn btn-link btn-xs" title="Visualizar" rel="tooltip" data-placement="top">
+                      <span class="glyphicon glyphicon-search"></span>
                     </a>
 
-                    <a class="btn btn-link btn-xs btn-remover" data-id-cliente="{{id}}" data-nome-cliente="{{nome}}" title="Remover" rel="tooltip" data-placement="top"
-                    data-toggle="modal" data-target="#modal-remover">
-                    <span  class="glyphicon glyphicon-remove"></span>
+                    <a class="btn btn-link btn-xs {{class-display}}" data-id-locacao="{{id}}" data-descricao-veiculo="{{descricaoVeiculo}}" title="Concluir locação" rel="tooltip" data-placement="top"
+                    data-toggle="modal" data-target="#modal-concluir">
+                    <span  class="glyphicon glyphicon-ok"></span>
                   </a>
                 </td>
               </tr>
@@ -113,20 +104,20 @@
 
             <!-- Modal de exclusão -->
 
-            <div class="modal fade" id="modal-remover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal fade" id="modal-concluir" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Remover registro</h4>
+                    <h4 class="modal-title" id="myModalLabel">Concluir locação</h4>
                   </div>
                   <div class="modal-body">
-                    <input id="id-remover" type="hidden" />
-                    Remover o cliente <span id="ed-nome-cliente-remover"></span> ?
+                    <input id="id-concluir" type="hidden" />
+                    Concluir locação do veículo <span id="ed-descricao-veiculo-concluir"></span> ?
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button id="btn-modal-remover" type="button" class="btn btn-danger" data-dismiss="modal">Remover</button>
+                    <button id="btn-modal-concluir" type="button" class="btn btn-success" data-dismiss="modal">Concluir</button>
                   </div>
                 </div>
               </div>
