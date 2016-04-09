@@ -1,7 +1,6 @@
-window.onload = init;
+var AppCadastroCliente = (function CadastroCliente(){
 
-function init(){
-
+  var app = {};
   var Storage = window.localStorage;
   var clientes = [];
   var acao = '';
@@ -265,29 +264,35 @@ function init(){
   }
 
   /* Inicialização */
-  btnSalvar = document.getElementById('btnSalvar');
-  btnSalvar.addEventListener('click', salvar);
+  function init(){
+    btnSalvar = document.getElementById('btnSalvar');
+    btnSalvar.addEventListener('click', salvar);
 
-  btnCancelar = document.getElementById('btnCancelar');
-  btnCancelar.addEventListener('click', cancelar);
+    btnCancelar = document.getElementById('btnCancelar');
+    btnCancelar.addEventListener('click', cancelar);
 
-  acao = UTIL.getParameterURL('acao');
+    acao = UTIL.getParameterURL('acao');
 
-  opcaoCpf().addEventListener('click', definirMascaraDocumento, true);
-  opcaoCnpj().addEventListener('click', definirMascaraDocumento, true);
-  edCep().addEventListener("focusout", consultaCep);
+    opcaoCpf().addEventListener('click', definirMascaraDocumento, true);
+    opcaoCnpj().addEventListener('click', definirMascaraDocumento, true);
+    edCep().addEventListener("focusout", consultaCep);
 
-  $('#edTelefone').mask('(00) 0000-00000');
-  $('#edCelular').mask('(00) 0000-00000');
-  $('#edCep').mask('00000-000');
-  $('#edUf').mask('SS');
-  $('#edCnh').mask('000000000000000');
+    $('#edTelefone').mask('(00) 0000-00000');
+    $('#edCelular').mask('(00) 0000-00000');
+    $('#edCep').mask('00000-000');
+    $('#edUf').mask('SS');
+    $('#edCnh').mask('000000000000000');
 
-  definirMascaraDocumento();
+    definirMascaraDocumento();
 
-  if (acao === 'editar'){
-    editarCliente();
+    if (acao === 'editar'){
+      editarCliente();
+    }
   }
 
-  /* Fim inicialização */
-}
+  app.init = function(){
+    init();
+  }
+
+  return app;
+})();
