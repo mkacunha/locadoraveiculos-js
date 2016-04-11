@@ -1,6 +1,6 @@
-window.onload = init;
+var AppConsultaVeiculo = (function consultaVeiculo(){
 
-function init(){
+  var app = {};
   var Storage = window.localStorage;
 
   function imprimeListaVeiculos(){
@@ -68,19 +68,25 @@ function init(){
   }
 
   var veiculos = [];
-  /*Início que deve ser inicializado*/
-  buscarVeiculos();
-  imprimeListaVeiculos();
 
-  var btnModalRemover = document.getElementById('btn-modal-remover');
-  btnModalRemover.addEventListener('click', removerVeiculo);
+  function init(){
+    buscarVeiculos();
+    imprimeListaVeiculos();
 
-  var tipoMensagem = UTIL.getParameterURL('tipomensagem');
-  var mensagem = UTIL.getParameterURL('mensagem');
+    var btnModalRemover = document.getElementById('btn-modal-remover');
+    btnModalRemover.addEventListener('click', removerVeiculo);
 
-  if (tipoMensagem !== undefined && mensagem !== undefined){
-    mostrarMensagem(tipoMensagem, mensagem);
+    var tipoMensagem = UTIL.getParameterURL('tipomensagem');
+    var mensagem = UTIL.getParameterURL('mensagem');
+
+    if (tipoMensagem !== undefined && mensagem !== undefined){
+      mostrarMensagem(tipoMensagem, mensagem);
+    }
   }
 
-  /*Fim inicializacao*/
-}
+  app.init = function(){
+    init();
+  }
+
+  return app;
+})();

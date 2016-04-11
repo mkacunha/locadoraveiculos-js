@@ -83,7 +83,7 @@ function initMap() {
       initMap();
 
       $("#edOrigem").autocomplete({
-        source: function (request, response) {
+        source: function (request, response) {          
           geocoder.geocode({ 'address': request.term + ', Brasil', 'region': 'BR' }, function (results, status) {
             response($.map(results, function (item) {
               return {
@@ -96,12 +96,7 @@ function initMap() {
           })
         },
         select: function (event, ui) {
-          $("#edOrigemLatitude").val(ui.item.latitude);
-          $("#edOrigemLongitude").val(ui.item.longitude);
           var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
-        /*  marker.setPosition(location);
-          map.setCenter(location);
-          map.setZoom(16); */
         }
       });
 
@@ -119,12 +114,7 @@ function initMap() {
           })
         },
         select: function (event, ui) {
-          $("#edDestinoLatitude").val(ui.item.latitude);
-          $("#edDestinoLongitude").val(ui.item.longitude);
           var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
-        /*  marker.setPosition(location);
-          map.setCenter(location);
-          map.setZoom(16); */
         }
       });
 
