@@ -24,7 +24,6 @@
   <script type="text/javascript" src="js/simularLocacao.js"></script>
   <script type="text/javascript" src="js/mapa.js"></script>
   <script type="text/javascript" src="js/jquery-ui.custom.min.js"></script>
-
 </head>
 <body>
   <div class="row">
@@ -98,132 +97,132 @@
 
           <!--
           <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-          </ul>
+          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+        </ul>
 
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home"></div>
-            <div role="tabpanel" class="tab-pane" id="profile">maiko 2</div>
-          </div>
+        <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home"></div>
+        <div role="tabpanel" class="tab-pane" id="profile">maiko 2</div>
+      </div>
 
-        </div>-->
-
-
-        <div class="form-group">
-          <label for="edId" class="col-sm-2 control-label">Veículo</label>
-          <div class="col-sm-8">
-            <select id="select-veiculo" class="selectpicker" data-live-search="true" data-width="100%">
-
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-md-offset-2 col-sm-8">
-            <div class="col-md-9 form-group row" id="opcoes">
-              <label class="radio-inline" for="opcaoPeriodo">
-                <input type="radio"  class="opcaoLocacao" name="opcao" id="opcaoPeriodo" value="CPF" checked="checked">
-                Locação por período
-              </label>
-              <label class="radio-inline" for="opcaoTrajeto">
-                <input type="radio" class="opcaoLocacao" name="opcao" id="opcaoTrajeto" value="CNPJ">
-                Locação por trajeto
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <div id="grupoLocacaoPeriodo" class="form-group">
-          <label  for="edDataInicio" class="col-sm-2 control-label">Data início</label>
-          <div class="col-sm-3">
-            <div class="form-group">
-              <div class='input-group date' id='edGrupoDataInicio'>
-                <input id="edDataInicio" type='text' class="form-control  limpar" />
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <label  for="edDataFim" class="col-sm-2 control-label">Data fim</label>
-          <div class="col-sm-3">
-            <div class="form-group">
-              <div class='input-group date' id='edGrupoDataFim'>
-                <input id="edDataFim" type='text' class="form-control  limpar" />
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="grupoLocacaoTrajeto" class="form-group">
-          <label  for="edOrigem" class="col-sm-2 control-label">Origem</label>
-          <div class="col-sm-3">
-            <input type="text" class="form-control requerido limpar" id="edOrigem" data-label="Origem"/>
-            <input type="hidden" id="edOrigemLatitude" name="edOrigemLatitude" />
-            <input type="hidden" id="edOrigemLongitude" name="edOrigemLongitude" />
-          </div>
-
-          <label  for="edDestino" class="col-sm-2 control-label">Destino</label>
-          <div class="col-sm-3">
-            <input type="text" class="form-control requerido limpar" id="edDestino" data-label="Destino"/>
-          </div>
-        </div>
-
-        <div id="grupoInfoPeriodo" class="form-group">
-          <label  for="edValorDiaria" class="col-sm-2 control-label">Valor diária</label>
-          <div class="col-sm-3">
-            <input type="text" class="form-control" id="edValorDiaria" readonly="readonly"/>
-          </div>
-
-          <label  for="edQuantidadeDias" class="col-sm-2 control-label">Quantidade dias</label>
-          <div class="col-sm-3">
-            <input type="text" class="form-control requerido limpar" id="edQuantidadeDias"  readonly="readonly"/>
-          </div>
-        </div>
-
-        <div id="grupoInfoTrajeto" class="form-group">
-          <label  for="edValorKm" class="col-sm-2 control-label">Valor por KM</label>
-          <div class="col-sm-3">
-            <input type="text" class="form-control" id="edValorKm" readonly="readonly"/>
-          </div>
-
-          <label  for="edQuantidadeKm" class="col-sm-2 control-label">Quantidade KM</label>
-          <div class="col-sm-3">
-            <input type="text" class="form-control  limpar" id="edQuantidadeKm" readonly="readonly"/>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label  for="edValorSimulacao" class="col-sm-2 control-label">Valor simulação</label>
-          <div class="col-sm-3">
-            <input type="text" class="form-control  limpar" id="edValorSimulacao"/>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <button id="btnSimular" type="submit" class="btn btn-danger">Simular</button>
-            <button id="btnGerarLocacao" type="submit" class="btn btn-primary">Gerar locação do veículo</button>
-          </div>
-        </div>
+    </div>-->
 
 
-        <div>
-          <h1 id="warnings-panel"></h1>
-        </div>
+    <div class="form-group">
+      <label for="edId" class="col-sm-2 control-label">Veículo</label>
+      <div class="col-sm-8">
+        <select id="select-veiculo" class="selectpicker" data-live-search="true" data-width="100%">
 
-        </div>
-        <div id="mapa"></div>
-
+        </select>
       </div>
     </div>
 
+    <div class="form-group">
+      <div class="col-md-offset-2 col-sm-8">
+        <div class="col-md-9 form-group row" id="opcoes">
+          <label class="radio-inline" for="opcaoPeriodo">
+            <input type="radio"  class="opcaoLocacao" name="opcao" id="opcaoPeriodo" value="CPF" checked="checked">
+            Locação por período
+          </label>
+          <label class="radio-inline" for="opcaoTrajeto">
+            <input type="radio" class="opcaoLocacao" name="opcao" id="opcaoTrajeto" value="CNPJ">
+            Locação por trajeto
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div id="grupoLocacaoPeriodo" class="form-group">
+      <label  for="edDataInicio" class="col-sm-2 control-label">Data início</label>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <div class='input-group date' id='edGrupoDataInicio'>
+            <input id="edDataInicio" type='text' class="form-control  limpar" />
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <label  for="edDataFim" class="col-sm-2 control-label">Data fim</label>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <div class='input-group date' id='edGrupoDataFim'>
+            <input id="edDataFim" type='text' class="form-control  limpar" />
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="grupoLocacaoTrajeto" class="form-group">
+      <label  for="edOrigem" class="col-sm-2 control-label">Origem</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control requerido limpar" id="edOrigem" data-label="Origem"/>
+        <input type="hidden" id="edOrigemLatitude" name="edOrigemLatitude" />
+        <input type="hidden" id="edOrigemLongitude" name="edOrigemLongitude" />
+      </div>
+
+      <label  for="edDestino" class="col-sm-2 control-label">Destino</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control requerido limpar" id="edDestino" data-label="Destino"/>
+      </div>
+    </div>
+
+    <div id="grupoInfoPeriodo" class="form-group">
+      <label  for="edValorDiaria" class="col-sm-2 control-label">Valor diária</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="edValorDiaria" readonly="readonly"/>
+      </div>
+
+      <label  for="edQuantidadeDias" class="col-sm-2 control-label">Quantidade dias</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control requerido limpar" id="edQuantidadeDias"  readonly="readonly"/>
+      </div>
+    </div>
+
+    <div id="grupoInfoTrajeto" class="form-group">
+      <label  for="edValorKm" class="col-sm-2 control-label">Valor por KM</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="edValorKm" readonly="readonly"/>
+      </div>
+
+      <label  for="edQuantidadeKm" class="col-sm-2 control-label">Quantidade KM</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control  limpar" id="edQuantidadeKm" readonly="readonly"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label  for="edValorSimulacao" class="col-sm-2 control-label">Valor simulação</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control  limpar" id="edValorSimulacao"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button id="btnSimular" type="submit" class="btn btn-danger">Simular</button>
+        <button id="btnGerarLocacao" type="submit" class="btn btn-primary">Gerar locação do veículo</button>
+      </div>
+    </div>
+
+
+    <div>
+      <h1 id="warnings-panel"></h1>
+    </div>
+
   </div>
+  <div id="mapa"></div>
+
+</div>
+</div>
+
+</div>
 
 </body>
 </html>

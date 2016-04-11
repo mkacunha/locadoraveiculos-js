@@ -2,6 +2,7 @@ window.onload = init;
 
 function init(){
 
+  var app = {};
   var Storage = window.localStorage;
   var clientes = [];
   var veiculos = [];
@@ -377,7 +378,6 @@ function init(){
   }
 
 
-  /* Inicialização */
   inicializarSelects();
   $('select').selectpicker('refresh');
 
@@ -407,7 +407,5 @@ function init(){
 
   $('#edValorSimulacao').mask('000.000.000.000.000,00', {reverse: true});
 
-
-  /* Fim Inicialização */
 
 }

@@ -1,7 +1,6 @@
-window.onload = init;
+var AppLocacao = (function locacao(){
 
-function init(){
-
+  var app = {};
   var Storage = window.localStorage;
   var locacoes = [];
 
@@ -62,20 +61,20 @@ function init(){
     return document.getElementById('edResumo');
   }
 
+  function init(){
+    var id = UTIL.getParameterURL('id');
 
-  /* Inicialização */
+    buscarLocacoes();
+    var locacao = getLocacao(id);
 
-  var id = UTIL.getParameterURL('id');
-
-  buscarLocacoes();
-  var locacao = getLocacao(id);
-
-  if (locacao != null){
-    setDadosLocacao(locacao);
+    if (locacao != null){
+      setDadosLocacao(locacao);
+    }
   }
 
+  app.init = function(){
+    init();
+  }
 
-
-  /* Fim da inicialização */
-
-};
+  return app;
+})();
